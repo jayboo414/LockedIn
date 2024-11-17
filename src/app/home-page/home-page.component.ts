@@ -9,5 +9,8 @@ import { ActivityComponent } from '../activity/activity.component';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
-
+  public clearStorage(){
+    console.log("cleared local storage!")
+    localStorage.clear()
+  }
 }

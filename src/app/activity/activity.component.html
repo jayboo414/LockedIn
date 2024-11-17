@@ -1,24 +1,21 @@
 <p>Add activity:</p>
-<!-- <form>
-	<label for="name">Activity:</label><br>
-	<input type="text" id="name" name="name"><br>
-	<label for="priority">Priority:</label><br>
-	<input type="text" id="priority" name="priority"><br>
-	<label for="repeats">Repeats:</label><br>
-	<input type="text" id="repeats" name="repeats"><br>
-	<label for="ends">Ends</label><br>
-	<input type="text" id="ends" name="ends">
-	<input type="submit" value="Submit">
-</form>  -->
-<form [formGroup]="addActivity">
-	<label for="name">Activity:</label><br>
-	<input type="text" id="name" name="name"><br>
-	<label for="priority">Priority:</label><br>
-	<input type="text" id="priority" name="priority"><br>
-	<label for="repeats">Repeats:</label><br>
-	<input type="text" id="repeats" name="repeats"><br>
-	<label for="ends">Ends</label><br>
-	<input type="text" id="ends" name="ends"><br>
+<form [formGroup]="addActivity" (ngSubmit)="onSubmit()">
+	<div>
+		<label for="name">Activity:</label>
+		<input type="text" id="name" formControlName="name">
+	</div>
+	<div>
+		<label for="priority">Priority:</label>
+		<input type="text" id="priority" formControlName="priority">
+	</div>
+	<div>
+		<label for="repeats">Repeats:</label>
+		<input type="text" id="repeats" formControlName="repeats">
+	</div>
+	<div>	
+		<label for="ends">Ends:</label>
+		<input type="text" id="ends" formControlName="ends">
+	</div>
 	<button class="button" type="submit">Add Activity</button>
   
 </form>

@@ -23,7 +23,17 @@ export class ActivityComponent implements OnInit{
   });
 
   onSubmit(): void {
-    console.log("submitted")
+    console.log(this.addActivity.value)
+    let activityName = <string>this.addActivity.value.name;
+	  let activityPriority =  <number><unknown>this.addActivity.value.priority;
+  	let activityRepeats = <boolean><unknown>this.addActivity.value.repeats;
+  	let activityEnds =  <number><unknown>this.addActivity.value.ends;
+    this.assignments.update(value =>{return [...value, {name: activityName,
+      priority: activityPriority,
+      repeats: activityRepeats,
+      ends: activityEnds}]}
+    )
+    localStorage.setItem("1",JSON.stringify(this.assignments()[0]))
   }
 
   assignments = signal<Array<assignment>>([]);
@@ -31,7 +41,6 @@ export class ActivityComponent implements OnInit{
 
 
   ngOnInit(): void {
-      console.log("test");
       this.assignments.set(this.service.assignments);
   }
 }
