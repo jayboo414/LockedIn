@@ -31,6 +31,7 @@ export class ActivityServiceService{
         }
         console.log(assignmentObject);
         this.assignments[i] = assignmentObject;
+        this.assignments.sort((a,b)=> b.currentPriority - a.currentPriority);
       }
     })
   }

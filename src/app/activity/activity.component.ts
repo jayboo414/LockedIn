@@ -38,6 +38,7 @@ export class ActivityComponent implements OnInit{
       ends: activityEnds}]}
     )
     localStorage.setItem(<string><unknown>localStorage.length,JSON.stringify(this.assignments()[localStorage.length]));
+    this.assignments().sort((a,b)=> b.currentPriority - a.currentPriority);
     console.log(this.assignments()[localStorage.length - 1]);
   }
 
