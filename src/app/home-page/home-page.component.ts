@@ -10,7 +10,7 @@ import { ActivityComponent } from '../activity/activity.component';
 })
 export class HomePageComponent {
   public clearStorage(){
-    console.log("cleared local storage!")
-    localStorage.clear()
+    localStorage.clear();
+    console.log("cleared local storage!");
   }
 }

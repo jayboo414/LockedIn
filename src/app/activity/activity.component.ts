@@ -19,6 +19,7 @@ export class ActivityComponent implements OnInit{
     name: '',
 	  priority: '',
   	repeats: '',
+    starts: '',
   	ends: ''
   });
 
@@ -27,13 +28,17 @@ export class ActivityComponent implements OnInit{
     let activityName = <string>this.addActivity.value.name;
 	  let activityPriority =  <number><unknown>this.addActivity.value.priority;
   	let activityRepeats = <boolean><unknown>this.addActivity.value.repeats;
-  	let activityEnds =  <number><unknown>this.addActivity.value.ends;
+    let activityStarts =  new Date(<string>this.addActivity.value.starts);
+  	let activityEnds =  new Date(<string>this.addActivity.value.ends);
     this.assignments.update(value =>{return [...value, {name: activityName,
-      priority: activityPriority,
+      priorityLevel: activityPriority,
+      currentPriority: activityPriority,
       repeats: activityRepeats,
+      starts: activityStarts,
       ends: activityEnds}]}
     )
-    localStorage.setItem("1",JSON.stringify(this.assignments()[0]))
+    localStorage.setItem(<string><unknown>localStorage.length,JSON.stringify(this.assignments()[localStorage.length]));
+    console.log(this.assignments()[localStorage.length - 1]);
   }
 
   assignments = signal<Array<assignment>>([]);
@@ -41,6 +46,7 @@ export class ActivityComponent implements OnInit{
 
 
   ngOnInit(): void {
-      this.assignments.set(this.service.assignments);
+    console.log("Oninit in activity componenet")
+    this.assignments.set(this.service.assignments);
   }
 }

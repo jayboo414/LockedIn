@@ -5,7 +5,7 @@
 		<input type="text" id="name" formControlName="name">
 	</div>
 	<div>
-		<label for="priority">Priority:</label>
+		<label for="priority">Priority Level:</label>
 		<input type="text" id="priority" formControlName="priority">
 	</div>
 	<div>
@@ -13,14 +13,40 @@
 		<input type="text" id="repeats" formControlName="repeats">
 	</div>
 	<div>	
+		<label for="starts">Starts:</label>
+		<input type="date" id="starts" formControlName="starts">
+	</div>
+	<div>	
 		<label for="ends">Ends:</label>
-		<input type="text" id="ends" formControlName="ends">
+		<input type="date" id="ends" formControlName="ends">
 	</div>
 	<button class="button" type="submit">Add Activity</button>
   
 </form>
-<p>Activites:</p>
-@for (assign of assignments(); track $index) {
-	<p>{{assign.name}}</p>
-}
+
+<table class="displayActivitiesTable">
+	<thead>
+		<tr>
+			<th>Activity Name</th>
+			<th>Current Priority</th>
+			<th>Priority Level</th>
+			<th>Repeats</th>
+			<th>Starts</th>
+			<th>Ends</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (assign of assignments(); track $index) {
+			<tr>
+				<td>{{assign.name}}</td>
+				<td>{{assign.currentPriority}}</td>
+				<td>{{assign.priorityLevel}}</td>
+				<td>{{assign.repeats}}</td>
+				<td>{{assign.starts}}</td>
+				<td>{{assign.ends}}</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
 

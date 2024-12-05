@@ -1,6 +1,8 @@
 export type assignment = {
 	name: string;
-	priority: number;
+	priorityLevel: number;
+	currentPriority: number;
   	repeats: boolean;
-  	ends: number;
+	starts: Date;
+  	ends: Date;
 }
